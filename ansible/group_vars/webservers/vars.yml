@@ -1,0 +1,12 @@
+redmine_db_addr: db-postgresql-nyc1-68683-do-user-17776066-0.d.db.ondigitalocean.com
+redmine_db_database_public: '{{ redmine_db_database_private }}'
+redmine_db_port: '25060'
+redmine_db_username_public: '{{ redmine_db_username_private }}'
+redmine_secret_key_base_public: '{{ redmine_secret_key_base_private }}'
+redmine_db_password_public: '{{ redmine_db_password_private }}'
+
+datadog_api_key: '{{ datadog_api_key_private }}'
+datadog_app_key: '{{ datadog_app_key_private }}'
+datadog_site: 'us5.datadoghq.com'
+
+env_file_path: .env
