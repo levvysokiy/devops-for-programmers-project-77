@@ -3,3 +3,5 @@ region       = "nyc1"
 size         = "s-1vcpu-1gb"
 image        = "ubuntu-20-04-x64"
 tags         = ["web-server"]
+db_name      = "appdb"
+db_user      = "appadmin"

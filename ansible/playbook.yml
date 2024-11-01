@@ -1,0 +1,55 @@
+- hosts: all
+  become: true
+  roles:
+    - role: geerlingguy.docker
+      tags:
+        - prepare-servers
+
+  tasks:
+    - name: Copy env
+      ansible.builtin.template:
+        src: .env.j2
+        dest: '{{ env_file_path }}'
+        mode: '0644'
+      tags:
+        - deploy
+
+    - name: Start Redmine
+      community.docker.docker_container:
+        name: redmine
+        image: 'redmine:5.1.3'
+        restart_policy: always
+        state: started
+        env_file: '{{ env_file_path }}'
+        ports: '{{ app_port }}:3000'
+      tags:
+        - deploy
+# - hosts: webservers
+#   become: true
+#   roles:
+#     - datadog.datadog
+#   tasks:
+#     - name: Ensure Datadog HTTP check configuration directory exists
+#       file:
+#         path: /etc/datadog-agent/conf.d/http_check.d
+#         state: directory
+#         mode: '0755'
+#       tags:
+#         - prepare-servers
+#     - name: Copy datadog config
+#       ansible.builtin.template:
+#         src: datadog.yaml.j2
+#         dest: /etc/datadog-agent/conf.d/http_check.d/conf.yaml
+#         owner: root
+#         group: root
+#         mode: 0644
+#       tags:
+#         - prepare-servers
+
+#     - name: Start Datadog agent
+#       service:
+#         name: datadog-agent
+#         state: restarted
+#         enabled: yes
+#       tags:
+#         - prepare-servers

@@ -1,4 +1,4 @@
-redmine_db_addr: db-postgresql-nyc1-68683-do-user-17776066-0.d.db.ondigitalocean.com
+redmine_db_addr: my-postgres-cluster-do-user-17776066-0.e.db.ondigitalocean.com
 redmine_db_database_public: '{{ redmine_db_database_private }}'
 redmine_db_port: '25060'
 redmine_db_username_public: '{{ redmine_db_username_private }}'
