@@ -4,11 +4,21 @@ terraform {
       source  = "digitalocean/digitalocean"
       version = "~> 2.0"
     }
+    datadog = {
+      source  = "datadog/datadog"
+      version = "~> 3.0" # specify the version or use latest compatible version
+    }
   }
 }
 
 provider "digitalocean" {
   token = var.do_token
+}
+
+provider "datadog" {
+  api_key = var.datadog_api_key
+  app_key = var.datadog_app_key
+  api_url = "https://api.us5.datadoghq.com/"
 }
 
 # Create a new Droplet (VM)
@@ -110,4 +120,11 @@ resource "digitalocean_database_db" "mydatabase" {
 resource "digitalocean_database_user" "db_user" {
   cluster_id = digitalocean_database_cluster.postgres.id
   name       = var.db_user
+}
+
+resource "datadog_monitor" "healthcheck" {
+  name    = "Healthcheck monitor"
+  type    = "service check"
+  query   = "\"http.can_connect\".over(\"instance:datadog_health_check\").by(\"host\",\"instance\",\"url\").last(4).count_by_status()"
+  message = "{{host.name}} not available"
 }
