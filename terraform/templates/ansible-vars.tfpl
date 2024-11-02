@@ -1,0 +1,12 @@
+redmine_db_addr: ${redmine_db_addr}
+redmine_db_database: ${redmine_db_database}
+redmine_db_port: ${redmine_db_port}
+redmine_db_username: ${redmine_db_username}
+redmine_secret_key_base: ${redmine_secret_key_base}
+redmine_db_password: ${redmine_db_password}
+
+datadog_api_key: ${datadog_api_key}
+datadog_app_key: ${datadog_app_key}
+datadog_site: 'us5.datadoghq.com'
+
+env_file_path: .env

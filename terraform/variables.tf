@@ -44,5 +44,6 @@ variable "datadog_app_key" {
 variable "domain" {}
 variable "http_port" {}
 variable "https_port" {}
+variable "redmine_secret_key_base" {}
 
 

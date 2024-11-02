@@ -1,4 +1,4 @@
-VAULT_FILE=./group_vars/webservers/vault.yml
+VAULT_FILE=./group_vars/webservers/vars.yml
 VAULT_PASS_FILE=.vault_pass
 
 install-deps:
