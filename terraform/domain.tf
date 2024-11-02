@@ -1,6 +1,6 @@
 # Add a domain to DigitalOcean
 resource "digitalocean_domain" "web_domain" {
-  name = "vysokiylev.xyz"
+  name = var.domain
 }
 
 resource "digitalocean_record" "www" {

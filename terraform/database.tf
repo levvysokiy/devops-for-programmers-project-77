@@ -1,10 +1,10 @@
 resource "digitalocean_database_cluster" "postgres" {
   name       = "my-postgres-cluster"
   engine     = "pg"
-  version    = "13"             # Specify the PostgreSQL version you need
-  region     = var.region       # Choose the desired region
-  size       = "db-s-1vcpu-1gb" # Select the node size
-  node_count = 1                # Number of nodes in the cluster
+  version    = "13"
+  region     = var.region
+  size       = var.db_size
+  node_count = var.db_node_count
 }
 
 # Create the initial database

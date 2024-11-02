@@ -1,17 +1,18 @@
 resource "digitalocean_loadbalancer" "web_lb" {
   name   = "example-lb"
   region = var.region
+
   forwarding_rule {
-    entry_port      = 80
+    entry_port      = var.http_port
     entry_protocol  = "http"
-    target_port     = 80
+    target_port     = var.http_port
     target_protocol = "http"
   }
 
   forwarding_rule {
-    entry_port       = 443
+    entry_port       = var.https_port
     entry_protocol   = "https"
-    target_port      = 80
+    target_port      = var.http_port
     target_protocol  = "http"
     certificate_name = digitalocean_certificate.cert.name
     tls_passthrough  = false
@@ -19,7 +20,7 @@ resource "digitalocean_loadbalancer" "web_lb" {
 
   healthcheck {
     protocol = "http"
-    port     = 80
+    port     = var.http_port
     path     = "/"
   }
 
