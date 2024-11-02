@@ -29,7 +29,12 @@ variable "db_user" {
 variable "db_password" {
   type        = string
   description = "The password for the PostgreSQL database"
+  sensitive   = true
 }
 
-variable "datadog_api_key" {}
-variable "datadog_app_key" {}
+variable "datadog_api_key" {
+  sensitive = true
+}
+variable "datadog_app_key" {
+  sensitive = true
+}

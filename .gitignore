@@ -3,3 +3,8 @@
 secrets.*
 *.tfstate
 *.tfstate.*
+/terraform/backend-config.tfvars
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
