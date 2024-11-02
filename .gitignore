@@ -8,3 +8,5 @@ secrets.*
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+/ansible/.vault_pass
