@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/levvysokiy/devops-for-programmers-project-77/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/levvysokiy/devops-for-programmers-project-77/actions)
 
-https://levvysokiy.xyz
+https://vysokiylev.xyz
 
 ## Requirements
 
