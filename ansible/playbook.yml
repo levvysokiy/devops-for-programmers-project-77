@@ -10,7 +10,7 @@
       ansible.builtin.template:
         src: .env.j2
         dest: '{{ env_file_path }}'
-        mode: '0644'
+        mode: 644
       tags:
         - deploy
 
@@ -35,7 +35,7 @@
       file:
         path: /etc/datadog-agent/conf.d/http_check.d
         state: directory
-        mode: '0755'
+        mode: 755
       tags:
         - prepare-servers
     - name: Copy datadog config
@@ -44,7 +44,7 @@
         dest: /etc/datadog-agent/conf.d/http_check.d/conf.yaml
         owner: root
         group: root
-        mode: 0644
+        mode: 644
       tags:
         - prepare-servers
 

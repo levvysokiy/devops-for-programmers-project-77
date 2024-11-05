@@ -1,4 +1,4 @@
-VAULT_FILE=./group_vars/webservers/vars.yml
+VAULT_FILE=./group_vars/all.yml
 VAULT_PASS_FILE=.vault_pass
 
 install-deps:
@@ -13,3 +13,5 @@ prepare-servers:
 	ansible-playbook playbook.yml --tags=prepare-servers
 deploy:
 	ansible-playbook playbook.yml --tags=deploy
+generate-terraform-vars:
+	ansible-playbook terraform.yml

@@ -18,3 +18,9 @@ prepare-servers:
 
 deploy:
 	make -C ansible deploy
+
+install-deps:
+	make -C ansible install-deps
+
+generate-terraform-vars:
+	make -C ansible generate-terraform-vars

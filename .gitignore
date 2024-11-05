@@ -2,7 +2,7 @@
 
 .terraform
 *.backup
-secrets.*
+terraform/secrets.*
 *.tfstate
 *.tfstate.*
 /terraform/backend-config.tfvars
